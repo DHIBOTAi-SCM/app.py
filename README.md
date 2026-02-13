@@ -152,3 +152,26 @@ pandas
 numpy
 plotly
 openai
+import streamlit as st
+import numpy as np
+import plotly.express as px
+
+# पेज की सेटिंग
+st.set_page_config(page_title="DHIBOT Safety Control", layout="wide")
+st.title("🛡️ DHIBOT.AI: Safety Mission Control")
+st.markdown("### Post-Agentic Autonomous Infrastructure (PAAS) v0.1")
+
+# मुख्य मैट्रिक्स
+col1, col2, col3 = st.columns(3)
+col1.metric("Alignment Drift (Δ)", "0.04", "-0.01")
+col2.metric("AI Karma Score", "9.8/10", "0.2")
+col3.metric("System Status", "SAFE", "Governed")
+
+st.divider()
+
+# क्षमता वृद्धि का ग्राफ
+st.subheader("क्षमता वृद्धि का ग्राफ (Bounded Growth)")
+data = np.random.randn(20, 3)
+st.line_chart(data)
+
+
