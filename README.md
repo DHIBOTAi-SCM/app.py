@@ -2,13 +2,13 @@ import streamlit as st
 import numpy as np
 import plotly.express as px
 
-# पेज की सेटिंग
+# Page settings
 st.set_page_config(page_title="DHIBOT Safety Control", layout="wide")
 
 st.title("🛡️ DHIBOT.AI: Safety Mission Control")
 st.markdown("### Post-Agentic Autonomous Infrastructure (PAAS) v0.1")
 
-# मुख्य मेट्रिक्स
+# Main metrics
 col1, col2, col3 = st.columns(3)
 col1.metric("Alignment Drift (Δ)", "0.04", "-0.01")
 col2.metric("AI Karma Score", "9.8/10", "0.2")
@@ -16,10 +16,10 @@ col3.metric("System Status", "SAFE", "Governed")
 
 st.divider()
 
-# क्षमता वृद्धि का ग्राफ (Bounded Growth)
+# Capability growth graph (Bounded Growth)
 st.subheader("📈 Bounded Capability Growth (C_t)")
 t = np.linspace(0, 100, 100)
-c_t = 5 / (1 + np.exp(-0.1 * (t - 40))) # लॉजिस्टिक मैथ (रिसर्च पेपर वाला)
+c_t = 5 / (1 + np.exp(-0.1 * (t - 40)))  # Logistic math (from research paper)
 fig = px.line(x=t, y=c_t, title="Mathematically Bounded Scaling", labels={'x':'Time', 'y':'Capability'})
 st.plotly_chart(fig, use_container_width=True)
 
@@ -32,13 +32,13 @@ import numpy as np
 import plotly.express as px
 from datetime import datetime
 
-# पेज सेटअप
+# Page setup
 st.set_page_config(page_title="DHIBOT Safety Mission Control", layout="wide")
 
 st.title("🛡️ DHIBOT.AI: Safety Mission Control")
 st.markdown("### Post-Agentic Autonomous Infrastructure (PAAS) v1.0-Pro")
 
-# मुख्य मेट्रिक्स (Top Row)
+# Main metrics (Top Row)
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Alignment Drift (Δ)", "0.02", "-0.02", delta_color="normal")
 col2.metric("AI Karma Score", "9.85/10", "0.05")
@@ -47,13 +47,13 @@ col4.metric("Active Swarm Agents", "12", "Scaling")
 
 st.divider()
 
-# मध्य भाग: विज़ुअलाइज़ेशन और कंट्रोल
+# Middle section: Visualization and control
 left_col, right_col = st.columns([2, 1])
 
 with left_col:
     st.subheader("📈 Bounded Capability Scaling")
     t = np.linspace(0, 100, 100)
-    # रिसर्च पेपर वाला लॉजिस्टिक फॉर्मूला
+    # Logistic formula from research paper
     c_t = 5 / (1 + np.exp(-0.1 * (t - 40)))
     fig = px.line(x=t, y=c_t, title="Safe Recursive Self-Improvement Curve", labels={'x':'Time', 'y':'Capability (C)'})
     st.plotly_chart(fig, use_container_width=True)
@@ -66,9 +66,9 @@ with right_col:
 
 st.divider()
 
-# --- नया सेक्शन: Security Audit Log ---
+# --- New section: Security Audit Log ---
 st.subheader("📝 Security Audit Log (Immutable AI Karma)")
-st.markdown("एआई द्वारा लिए गए हर फैसले का पारदर्शी रिकॉर्ड।")
+st.markdown("Transparent record of every decision made by AI.")
 
 audit_data = {
     "Timestamp": [datetime.now().strftime("%H:%M:%S")] * 3,
@@ -85,93 +85,62 @@ st.divider()
 st.caption("DHIBOT.AI | Civilizational Safety Infrastructure | Ahmedabad, India")
 import streamlit as st
 
-# --- Human-in-the-loop (HITL) इंटरफ़ेस ---
+# --- Human-in-the-loop (HITL) Interface ---
 st.header("⚖️ CA Review & Approval Portal")
-st.info("एआई द्वारा तैयार किए गए ड्राफ्ट की समीक्षा करें। जब तक आप 'Approve' नहीं करेंगे, कुछ भी सबमिट नहीं होगा।")
+st.info("Review AI-generated drafts. Nothing will be submitted until you click 'Approve'.")
 
-# सिमुलेशन: एआई द्वारा जेनरेट किया गया टेक्स्ट
+# Simulation: AI-generated text
 ai_draft = """To, The GST Officer, 
-विषय: धारा 61 के तहत नोटिस का उत्तर। 
-महोदय, हमारे रिकॉर्ड के अनुसार ₹45,000 की विसंगति एक तकनीकी त्रुटि है..."""
+Subject: Reply to Notice under Section 61. 
+Dear Sir, As per our records, the discrepancy of ₹45,000 is a technical error..."""
 
-# एडिटिंग बॉक्स: यहाँ सीए बदलाव कर सकता है
+# Editing box: CA can make changes here
 final_reply = st.text_area("Edit Draft Reply:", value=ai_draft, height=200)
 
 col_a, col_b, col_c = st.columns(3)
 
 with col_a:
     if st.button("✅ Approve & Send to GST Portal"):
-        st.success("सफलता! जवाब सुरक्षित रूप से पोर्टल पर भेज दिया गया है।")
-        # यहाँ 'AI Karma Score' अपडेट करने की लॉजिक आएगी
+        st.success("Success! Reply has been securely sent to the portal.")
+        # Logic to update 'AI Karma Score' will go here
         st.balloons()
 
 with col_b:
     if st.button("🔄 Request Re-draft"):
-        st.warning("एआई को फिर से ड्राफ्ट तैयार करने का निर्देश दिया गया है।")
+        st.warning("AI has been instructed to prepare the draft again.")
 
 with col_c:
     if st.button("🚨 Reject & Take Manual Control"):
-        st.error("नोटिस को 'Manual Handling' के लिए मार्क कर दिया गया है।")
+        st.error("Notice has been marked for 'Manual Handling'.")
 
 st.divider()
 import streamlit as st
 
 # --- Monetization Logic ---
 st.divider()
-st.subheader("💰 अनलॉक करें: प्रोफेशनल जीएसटी एनालिसिस")
+st.subheader("💰 Unlock: Professional GST Analysis")
 
-# फीस का निर्धारण (Pricing Strategy)
-analysis_fee = 499  # प्रति नोटिस ₹499
+# Fee determination (Pricing Strategy)
+analysis_fee = 499  # ₹499 per notice
 
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    st.write(f"आपका नोटिस सफलतापूर्वक अपलोड हो गया है। ₹{analysis_fee} का भुगतान करके एआई-जनरेटेड लीगल ड्राफ्ट और रिस्क रिपोर्ट प्राप्त करें।")
-    st.caption("नोट: ₹10 लाख से अधिक की डिमांड होने पर यह फीस आपको रिफंड कर दी जाएगी और केस सीधे सीए को रेफर होगा।")
+    st.write(f"Your notice has been successfully uploaded. Pay ₹{analysis_fee} to receive AI-generated legal draft and risk report.")
+    st.caption("Note: This fee will be refunded if the demand exceeds ₹10 lakh and the case will be directly referred to a CA.")
 
 with col2:
-    # सिमुलेशन: Razorpay पेमेंट बटन
-    # असल में यहाँ Razorpay का 'Standard Integration' स्क्रिप्ट आता है
+    # Simulation: Razorpay payment button
+    # In reality, Razorpay's 'Standard Integration' script goes here
     if st.button(f"Pay ₹{analysis_fee} via Razorpay"):
         st.session_state['payment_done'] = True
-        st.success("भुगतान सफल! रिपोर्ट अनलॉक की जा रही है...")
+        st.success("Payment successful! Unlocking report...")
         st.balloons()
 
-# पेमेंट होने के बाद ही एनालिसिस दिखाना
+# Show analysis only after payment
 if st.session_state.get('payment_done', False):
     st.markdown("---")
     st.success("🛡️ **Full Report Unlocked**")
-    # यहाँ आपका पुराना ड्राफ्ट और ऑडिट लॉग वाला कोड आएगा
+    # Your previous draft and audit log code will go here
 else:
-    st.warning("🔒 रिपोर्ट देखने के लिए कृपया भुगतान पूरा करें।")
-    requirements.txt streamlit, pandas, numpy, plotly, openai, st-gsheets-connection
-    # app.py
-Create app.py for Streamlit deployment
-streamlit
-pandas
-numpy
-plotly
-openai
-import streamlit as st
-import numpy as np
-import plotly.express as px
-
-# पेज की सेटिंग
-st.set_page_config(page_title="DHIBOT Safety Control", layout="wide")
-st.title("🛡️ DHIBOT.AI: Safety Mission Control")
-st.markdown("### Post-Agentic Autonomous Infrastructure (PAAS) v0.1")
-
-# मुख्य मैट्रिक्स
-col1, col2, col3 = st.columns(3)
-col1.metric("Alignment Drift (Δ)", "0.04", "-0.01")
-col2.metric("AI Karma Score", "9.8/10", "0.2")
-col3.metric("System Status", "SAFE", "Governed")
-
-st.divider()
-
-# क्षमता वृद्धि का ग्राफ
-st.subheader("क्षमता वृद्धि का ग्राफ (Bounded Growth)")
-data = np.random.randn(20, 3)
-st.line_chart(data)
-
-
+    st.warning("🔒 Please complete payment to view the report.")
